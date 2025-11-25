@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Free Social Media Downloader | YouTube, Instagram, FB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .download-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px dashed #dee2e6;
+        }
+        .url-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+        .url-input:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+        }
+        .download-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #0056b3;
+        }
+        .platforms {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .platform {
+            background: #e9ecef;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .ad-space {
+            background: #f1f3f4;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Social Media Downloader</h1>
+            <p>YouTube, Instagram, Facebook se video/audio FREE download karein</p>
+        </div>
+
+        <!-- Ad Space 1 -->
+        <div class="ad-space">
+            <!-- Yahan Google Adsense ya any ads aayenge -->
+            <p>Advertisement Space</p>
+        </div>
+
+        <div class="download-box">
+            <input type="text" class="url-input" id="videoUrl" 
+                   placeholder="🔗 YouTube, Instagram, Facebook video URL yahan paste karein...">
+            <button class="download-btn" onclick="startDownload()">
+                📥 DOWNLOAD NOW
+            </button>
+        </div>
+
+        <div class="platforms">
+            <div class="platform">📹 YouTube</div>
+            <div class="platform">📷 Instagram</div>
+            <div class="platform">👥 Facebook</div>
+            <div class="platform">🎵 TikTok</div>
+            <div class="platform">🐦 Twitter</div>
+        </div>
+
+        <!-- Ad Space 2 -->
+        <div class="ad-space">
+            <!-- Second ad unit -->
+            <p>Advertisement Space</p>
+        </div>
+
+        <div class="footer">
+            <p>💡 Tip: Video ka link copy karke yahan paste karein aur download karein</p>
+            <p style="margin-top: 10px; font-size: 12px; color: #999;">
+                Disclaimer: Copyrighted content ke liye permission lein
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function startDownload() {
+            const url = document.getElementById('videoUrl').value.trim();
+            
+            if (!url) {
+                alert('❌ Please video URL paste karein!');
+                return;
+            }
+
+            let downloadUrl = '';
+            
+            // YouTube
+            if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                downloadUrl = `https://yt5s.com/en32?q=${encodeURIComponent(url)}`;
+            }
+            // Instagram
+            else if (url.includes('instagram.com')) {
+                downloadUrl = `https://downloadgram.com/upload?url=${encodeURIComponent(url)}`;
+            }
+            // Facebook
+            else if (url.includes('facebook.com')) {
+                downloadUrl = `https://getfbstuff.com/download?url=${encodeURIComponent(url)}`;
+            }
+            // TikTok
+            else if (url.includes('tiktok.com')) {
+                downloadUrl = `https://snaptik.app/process?url=${encodeURIComponent(url)}`;
+            }
+            else {
+                alert('❌ Invalid URL! Supported: YouTube, Instagram, Facebook, TikTok');
+                return;
+            }
+
+            // New tab me open karo
+            window.open(downloadUrl, '_blank');
+            
+            // Success message
+            alert('✅ Download page open ho gaya hai! Wahan se download karein.');
+        }
+
+        // Enter key press pe bhi kaam kare
+        document.getElementById('videoUrl').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                startDownload();
+            }
+        });
+    </script>
+</body>
+</html>
